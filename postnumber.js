@@ -8,7 +8,7 @@ function addValue(){
     var s = document.getElementById(idname).value;
     if(s.length == 7) {
         document.write("<script src=\"https://takuya-wada-0720.github.io/post/program/0-9.js\"></script>");
-        for(var a=0; a < tmp.length; ++a) {
+        for(var a=0; a < tmpdata.length; ++a) {
         if(s == data[a][0]) {
           var c = data[a][1]+data[a][2]+data[a][3]+data[a][4];
           document.getElementById("nekopv").value = c;
