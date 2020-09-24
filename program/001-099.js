@@ -3,6 +3,7 @@ function search2(num2) {
         case 001:
             function getCSV(url){
                 var csv = new XMLHttpRequest();
+                url = url + "postdata/001.csv" 
                 csv.open("get",url,true);
                 csv.send(null);
                 csv.onload = function(){
