@@ -1,5 +1,4 @@
-var kk = "https://takuya-wada-0720.github.io/post/test2.js"
-document.write("<script src = kk></script>");
+document.write("<script src="https://takuya-wada-0720.github.io/post/test2.js"></script>");
 
 function exec() {
     var result = getData(4);
