@@ -5,7 +5,7 @@ var tmpdata = [];
 var data = [];
 
 function addValue(){
-    postnum = document.getElementById("neko").value;
+    s = document.getElementById("neko").value;
     if(s.length == 7) {
         postnum = parseInt(s , 10);
         document.write("<script src=\"https://takuya-wada-0720.github.io/post/program/0-9.js\"></script>");
