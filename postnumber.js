@@ -1,7 +1,7 @@
-var postnum
-var url = "https://takuya-wada-0720.github.io/post/"
-var tmpdata[]
-var data[]
+var postnum;
+var url = "https://takuya-wada-0720.github.io/post/";
+var tmpdata = [];
+var data = [];
 
 function addValue(){
     var idname = "neko";
