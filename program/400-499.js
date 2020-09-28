@@ -6,14 +6,34 @@ function search2_4(num2) {
         st = String(i);
         if(num2.slice(0,3) == st){
             var s = st;
-            var script = document.createElement("script");
-            script.src = URL2+'program/post.js';
-            var head = document.getElementsByTagName("head");
-            head[0].appendChild(script);
-            script.onload = function(){
-                getCSV(URL2+'postdata/'+s+'.csv')
-            }
+            getCSV(URL2+'postdata/'+s+'.csv')
             break;
         }
     }
 }
+
+function getCSV(url){
+    console.log(url);    var csv = new XMLHttpRequest();
+      csv.open('get',url,true);
+      csv.send(null);
+      csv.onload = function(){
+        console.log(csv.responseText);
+        convertCSVtoArray(csv.responseText);
+      }
+    }
+    
+    function convertCSVtoArray(str){
+      tmpdata = str.split("\n");
+      for(var i=0;i<tmpdata.length;++i){
+          data[i] = tmpdata[i].split(',');
+      }
+      up(data,tmpdata)
+    }
+    
+    function up(d1,d2) {
+      for(var a=0; a < d2.length; ++a){
+        if(postnum == d1[a][0]){
+          document.getElementById("nekopv").value = d1[a][1]+d1[a][2]+d1[a][3]+d1[a][4];
+        }
+      }
+    }
