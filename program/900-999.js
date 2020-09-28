@@ -23,19 +23,19 @@ function getCSV(url){
     convertCSVtoArray(csv.responseText);
   }
 }
-    
+  
 function convertCSVtoArray(str){
   tmpdata = str.split("\n");
   for(var i=0;i<tmpdata.length;++i){
     data[i] = tmpdata[i].split(',');
   }
-  up(data,tmpdata)
+  up(data)
 }
-    
-function up(d1,d2) {
-  for(var a=0; a < d2.length; ++a){
-    if(postnum == d1[a][0]){
-      document.getElementById("nekopv").value = d1[a][1]+d1[a][2]+d1[a][3]+d1[a][4];
+  
+function up(d) {
+  for(var a=0; a < d.length; ++a){
+    if(postnum == d[a][0]){
+      document.getElementById("nekopv").value = d[a][1]+d[a][2]+d[a][3]+d[a][4];
     }
   }
 }
