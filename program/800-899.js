@@ -1,15 +1,9 @@
 var URL2 = 'https://takuya-wada-0720.github.io/post/'
 var st;
 
-function search2_0(num2) {
-    for(var i=1;i<100;i++){
+function search2_8(num2) {
+    for(var i=800;i<900;i++){
         st = String(i);
-        if(i<10) {
-            st = '00'+st;
-        }
-        else {
-            st = '0'+st;
-        }
         if(num2.slice(0,3) == st){
             var s = st;
             var script = document.createElement("script");
