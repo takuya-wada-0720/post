@@ -1,7 +1,7 @@
 var URL2 = 'https://takuya-wada-0720.github.io/post/'
 var st;
 
-function search2_0(num2) {
+function search2_0(num2,post_program) {
     for(var i=1;i<100;i++){
         st = String(i);
         if(i<10) {
@@ -12,32 +12,32 @@ function search2_0(num2) {
         }
         if(num2.slice(0,3) == st){
             var s = st;
-            getCSV(URL2+'postdata/'+s+'.csv')
+            getCSV(URL2+'postdata/'+s+'.csv',post_program)
             break;
         }
     }
 }
 
-function getCSV(url){
-  console.log(url);
+function getCSV(url,post_program){
+  console.log(url,post_program);
   var csv = new XMLHttpRequest();
   csv.open('get',url,true);
   csv.send(null);
   csv.onload = function(){
     console.log(csv.responseText);
-    convertCSVtoArray(csv.responseText);
+    convertCSVtoArray(csv.responseText,post_program);
   }
 }
   
-function convertCSVtoArray(str){
+function convertCSVtoArray(str,post_program){
   tmpdata = str.split("\n");
   for(var i=0;i<tmpdata.length;++i){
     data[i] = tmpdata[i].split(',');
   }
-  up(data)
+  up(data,post_program)
 }
   
-function up(d) {
+function up(d,post_program) {
   for(var a=0; a < d.length; ++a){
     if(postnum == d[a][0]){
       if(post_program[0].classList.contains("strt_add1") == true && post_program[0].classList.contains("strt_add2") == true) {
