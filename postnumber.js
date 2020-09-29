@@ -44,7 +44,7 @@ function addValue(){
 function search1(num1,post_program) {
   if(num1.slice(0,1) == '0'){
       var script = document.createElement("script");
-      script.src = URL1+'001-099.js';
+      script.src = '001-099.js';
       var head = document.getElementsByTagName("head");
       head[0].appendChild(script);
       script.onload = function(){
