@@ -9,6 +9,17 @@ function getCSV(url,post_program){
   }
 }
   
+function getCSV(url,post_program){
+  console.log(url,post_program);
+  var csv = new XMLHttpRequest();
+  csv.open('get',url,true);
+  csv.send(null);
+  csv.onload = function(){
+    console.log(csv.responseText);
+    convertCSVtoArray(csv.responseText,post_program);
+  }
+}
+  
 function convertCSVtoArray(str,post_program){
   tmpdata = str.split("\n");
   for(var i=0;i<tmpdata.length;++i){
@@ -18,6 +29,7 @@ function convertCSVtoArray(str,post_program){
 }
   
 function up(d,post_program) {
+  var strt_add  = post_program[0].getElementsByClassName("strt_add");
   var strt_add1 = post_program[0].getElementsByClassName("strt_add1");
   var strt_add2 = post_program[0].getElementsByClassName("strt_add2");
   for(var a=0; a < d.length; ++a){
@@ -26,8 +38,8 @@ function up(d,post_program) {
         post_program[0].getElementsByClassName("strt_add1")[0].value = d[a][1];
         post_program[0].getElementsByClassName("strt_add2")[0].value = d[a][2]+d[a][3]+d[a][4];
       }
-      if(strt_add1[0].classList.contains("strt_add1") == true) {
-        post_program[0].getElementsByClassName("strt_add1 strt_add2")[0].value = d[a][1]+d[a][2]+d[a][3]+d[a][4];
+      if(strt_add[0].classList.contains("strt_add") == true) {
+        post_program[0].getElementsByClassName("strt_add")[0].value = d[a][1]+d[a][2]+d[a][3]+d[a][4];
       }
     }
   }
