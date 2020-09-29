@@ -4,14 +4,40 @@ var data = [];
 var URL1 = 'https://takuya-wada-0720.github.io/post/program/'
 
 function addValue(){
-    postnum = document.getElementById("neko").value;
-    if(postnum.length == 3) {
-        search1(postnum)
+    var post_program = document.getElementsByClassName("post_program");
+    var postnum_class = post_program[0].getElementsByClassName("post_num");
+    if(postnum_class.length == 1) {
+        postnum = post_program[0].getElementsByClassName("post_num")[0].value;
+
+        if(postnum.length == 3) {
+            search1(postnum)
+        }
+        if(postnum.length == 7) {
+            search1(postnum)
+        }
+        if(postnum.length == 8) {
+            postnum.replace("-","");
+            search1(postnum)
+        }
     }
-    if(postnum.length == 7) {
-        search1(postnum)
+
+    if(postnum_class.length == 2) {
+        var postnum1 = post_program[0].getElementsByClassName("post_num")[0].value;
+        var postnum2 = post_program[0].getElementsByClassName("post_num")[1].value;
+        postnum = postnum1 + postnum2
+
+        if(postnum.length == 3) {
+            search1(postnum)
+        }
+        if(postnum.length == 7) {
+            search1(postnum)
+        }
+        if(postnum.length == 8) {
+            postnum = postnum.replace("-","");
+            search1(postnum)
+        }
     }
-    document.getElementById("test").innerHTML = postnum;
+    post_program[0].getElementsByClassName("test")[0].innerHTML = postnum;
 }
 
 
