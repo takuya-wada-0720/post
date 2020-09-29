@@ -10,14 +10,14 @@ function addValue(){
         postnum = post_program[0].getElementsByClassName("post_num")[0].value;
 
         if(postnum.length == 3) {
-            search1(postnum)
+            search1(postnum,post_program)
         }
         if(postnum.length == 7) {
-            search1(postnum)
+            search1(postnum,post_program)
         }
         if(postnum.length == 8) {
             postnum.replace("-","");
-            search1(postnum)
+            search1(postnum,post_program)
         }
     }
 
@@ -27,28 +27,28 @@ function addValue(){
         postnum = postnum1 + postnum2
 
         if(postnum.length == 3) {
-            search1(postnum)
+            search1(postnum,post_program)
         }
         if(postnum.length == 7) {
-            search1(postnum)
+            search1(postnum,post_program)
         }
         if(postnum.length == 8) {
             postnum = postnum.replace("-","");
-            search1(postnum)
+            search1(postnum,post_program)
         }
     }
     post_program[0].getElementsByClassName("test")[0].innerHTML = postnum;
 }
 
 
-function search1(num1) {
+function search1(num1,post_program) {
   if(num1.slice(0,1) == '0'){
       var script = document.createElement("script");
       script.src = URL1+'001-099.js';
       var head = document.getElementsByTagName("head");
       head[0].appendChild(script);
       script.onload = function(){
-          search2_0(num1)
+          search2_0(num1,post_program)
     }
   }
   if(num1.slice(0,1) == '1'){
@@ -57,7 +57,7 @@ function search1(num1) {
       var head = document.getElementsByTagName("head");
       head[0].appendChild(script);
       script.onload = function(){
-          search2_1(num1)
+          search2_1(num1,post_program)
       }
   }
   if(num1.slice(0,1) == '2'){
@@ -66,7 +66,7 @@ function search1(num1) {
       var head = document.getElementsByTagName("head");
       head[0].appendChild(script);
       script.onload = function(){
-          search2_2(num1)
+          search2_2(num1,post_program)
       }
   }
   if(num1.slice(0,1) == '3'){
@@ -75,7 +75,7 @@ function search1(num1) {
       var head = document.getElementsByTagName("head");
       head[0].appendChild(script);
       script.onload = function(){
-          search2_3(num1)
+          search2_3(num1,post_program)
       }
   }
   if(num1.slice(0,1) == '4'){
@@ -84,7 +84,7 @@ function search1(num1) {
       var head = document.getElementsByTagName("head");
       head[0].appendChild(script);
       script.onload = function(){
-          search2_4(num1)
+          search2_4(num1,post_program)
       }
   }
   if(num1.slice(0,1) == '5'){
@@ -93,7 +93,7 @@ function search1(num1) {
       var head = document.getElementsByTagName("head");
       head[0].appendChild(script);
       script.onload = function(){
-          search2_5(num1)
+          search2_5(num1,post_program)
       }
   }
   if(num1.slice(0,1) == '6'){
@@ -102,7 +102,7 @@ function search1(num1) {
       var head = document.getElementsByTagName("head");
       head[0].appendChild(script);
       script.onload = function(){
-          search2_6(num1)
+          search2_6(num1,post_program)
       }
   }
   if(num1.slice(0,1) == '7'){
@@ -111,7 +111,7 @@ function search1(num1) {
       var head = document.getElementsByTagName("head");
       head[0].appendChild(script);
       script.onload = function(){
-          search2_7(num1)
+          search2_7(num1,post_program)
       }
   }
   if(num1.slice(0,1) == '8'){
@@ -120,7 +120,7 @@ function search1(num1) {
       var head = document.getElementsByTagName("head");
       head[0].appendChild(script);
       script.onload = function(){
-          search2_8(num1)
+          search2_8(num1,post_program)
       }
   }
   if(num1.slice(0,1) == '9'){
@@ -129,7 +129,7 @@ function search1(num1) {
       var head = document.getElementsByTagName("head");
       head[0].appendChild(script);
       script.onload = function(){
-          search2_9(num1)
+          search2_9(num1,post_program)
       }
   }
 }
