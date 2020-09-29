@@ -5,8 +5,11 @@ var URL1 = 'https://takuya-wada-0720.github.io/post/program/'
 
 function addValue(){
     postnum = document.getElementById("neko").value;
+    if(postnum.length == 3) {
+        search1(postnum)
+    }
     if(postnum.length == 7) {
-      search1(postnum)
+        search1(postnum)
     }
     document.getElementById("test").innerHTML = postnum;
 }
