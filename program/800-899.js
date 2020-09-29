@@ -1,12 +1,12 @@
 var URL2 = 'https://takuya-wada-0720.github.io/post/'
 var st;
 
-function search2_8(num2) {
+function search2_8(num2,post_program) {
     for(var i=800;i<900;i++){
         st = String(i);
         if(num2.slice(0,3) == st){
             var s = st;
-            getCSV(URL2+'postdata/'+s+'.csv')
+            getCSV(URL2+'postdata/'+s+'.csv',post_program)
             break;
         }
     }
