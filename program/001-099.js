@@ -40,11 +40,11 @@ function convertCSVtoArray(str){
 function up(d) {
   for(var a=0; a < d.length; ++a){
     if(postnum == d[a][0]){
-      if(element.classList.contains("strt_add1") == true && element.classList.contains("strt_add2") == true) {
+      if(post_program[0].classList.contains("strt_add1") == true && post_program[0].classList.contains("strt_add2") == true) {
         post_program[0].getElementsByClassName("strt_add1")[0].value = d[a][1];
         post_program[0].getElementsByClassName("strt_add2")[0].value = d[a][2]+d[a][3]+d[a][4];
       }
-      if(element.classList.contains("strt_add1 strt_add2") == true) {
+      if(post_program[0].classList.contains("strt_add1 strt_add2") == true) {
         post_program[0].getElementsByClassName("strt_add1 strt_add2")[0].value = d[a][1]+d[a][2]+d[a][3]+d[a][4];
       }
     }
