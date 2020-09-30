@@ -1,4 +1,4 @@
-var URL2 = 'https://black1202.github.io/ykkat/'
+var URL2 = 'https://takuya-wada-0720.github.io/post/'
 var st;
 
 function search2_2(num2,post_program) {
