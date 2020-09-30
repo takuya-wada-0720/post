@@ -25,7 +25,7 @@ function postpro(){
     if(postnum_class.length == 2) {
         var postnum1 = post_program[0].getElementsByClassName("post_num")[0].value;
         var postnum2 = post_program[0].getElementsByClassName("post_num")[1].value;
-        if(postnum2 < 4){
+        if(postnum2.length < 4){
         var htmldata = post_program[0].innerHTML;
         htmldata = htmldata.replace(" ","");
         var result1 = htmldata.includes('class="strt_add1"');
