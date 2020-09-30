@@ -37,7 +37,6 @@ function addValue(){
             search1(postnum,post_program)
         }
     }
-    post_program[0].getElementsByClassName("test")[0].innerHTML = postnum;
 }
 
 
