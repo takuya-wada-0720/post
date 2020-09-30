@@ -13,37 +13,39 @@ function search2_8(num2,post_program) {
 }
 
 function getCSV(url,post_program){
-  console.log(url,post_program);
   var csv = new XMLHttpRequest();
   csv.open('get',url,true);
   csv.send(null);
   csv.onload = function(){
-    console.log(csv.responseText);
-    convertCSVtoArray(csv.responseText,post_program);
+    CSVtoArray(csv.responseText,post_program);
   }
 }
-  
-function convertCSVtoArray(str,post_program){
+
+function CSVtoArray(str,post_program){
   tmpdata = str.split("\n");
   for(var i=0;i<tmpdata.length;++i){
     data[i] = tmpdata[i].split(',');
   }
-  up(data,post_program)
+  search3(data,post_program)
 }
-  
-function up(d,post_program) {
-  var strt_add  = post_program[0].getElementsByClassName("strt_add");
-  var strt_add1 = post_program[0].getElementsByClassName("strt_add1");
-  var strt_add2 = post_program[0].getElementsByClassName("strt_add2");
+    
+function search3(d,post_program) {
+  var htmldata = post_program[0].innerHTML;
+  htmldata = htmldata.replace(" ","");
+  var result1 = htmldata.includes('class="strt_add1"');
+  var result2 = htmldata.includes('class="strt_add2"');
+  var result3 = htmldata.includes('class="strt_add"');
+
   for(var a=0; a < d.length; ++a){
     if(postnum == d[a][0]){
-      if(strt_add1[0].classList.contains("strt_add1") == true && strt_add2[0].classList.contains("strt_add2") == true) {
+      if(result1 == true && result2 == true) {
         post_program[0].getElementsByClassName("strt_add1")[0].value = d[a][1];
         post_program[0].getElementsByClassName("strt_add2")[0].value = d[a][2]+d[a][3]+d[a][4];
       }
-      if(strt_add[0].classList.contains("strt_add") == true) {
+      if(result3 == true) {
         post_program[0].getElementsByClassName("strt_add")[0].value = d[a][1]+d[a][2]+d[a][3]+d[a][4];
       }
+      break;
     }
   }
 }
