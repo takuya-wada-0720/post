@@ -25,6 +25,21 @@ function postpro(){
     if(postnum_class.length == 2) {
         var postnum1 = post_program[0].getElementsByClassName("post_num")[0].value;
         var postnum2 = post_program[0].getElementsByClassName("post_num")[1].value;
+        if(postnum2 < 4){
+        var htmldata = post_program[0].innerHTML;
+        htmldata = htmldata.replace(" ","");
+        var result1 = htmldata.includes('class="strt_add1"');
+        var result2 = htmldata.includes('class="strt_add2"');
+        var result3 = htmldata.includes('class="strt_add"');
+            if(result1 == true && result2 == true) {
+              post_program[0].getElementsByClassName("strt_add1")[0].value = "";
+              post_program[0].getElementsByClassName("strt_add2")[0].value = "";
+            }
+            if(result3 == true) {
+              post_program[0].getElementsByClassName("strt_add")[0].value = "";
+            }
+        }
+    }
         postnum = postnum1 + postnum2
 
         if(postnum.length == 3) {
