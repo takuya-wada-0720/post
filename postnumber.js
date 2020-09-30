@@ -3,55 +3,89 @@ var tmpdata = [];
 var data = [];
 var URL1 = 'https://takuya-wada-0720.github.io/post/program/'
 
-
-function postpro(){
+window.onload=function(){
     var post_program = document.getElementsByClassName("post_program");
     var postnum_class = post_program[0].getElementsByClassName("post_num");
-    if(postnum_class.length == 1) {
-        postnum = post_program[0].getElementsByClassName("post_num")[0].value;
 
-        if(postnum.length == 3) {
-            search1(postnum,post_program)
-        }
-        if(postnum.length == 7) {
-            search1(postnum,post_program)
-        }
-        if(postnum.length == 8) {
-            postnum.replace("-","");
-            search1(postnum,post_program)
-        }
+    if(postnum_class.length == 1){
+        postnum_class[0].addEventListener("keyup" , function(){
+            if(postnum_class.length == 1) {
+                postnum = postnum_class[0].value;
+                if(postnum.length == 3) {
+                    search1(postnum,post_program)
+                }
+                if(postnum.length == 7) {
+                    search1(postnum,post_program)
+                }
+                if(postnum.length == 8) {
+                    postnum.replace("-","");
+                    search1(postnum,post_program)
+                }
+            }
+        });
     }
 
-    if(postnum_class.length == 2) {
-        var postnum1 = post_program[0].getElementsByClassName("post_num")[0].value;
-        var postnum2 = post_program[0].getElementsByClassName("post_num")[1].value;
-        if(postnum2.length < 4){
-        var htmldata = post_program[0].innerHTML;
-        htmldata = htmldata.replace(" ","");
-        var result1 = htmldata.includes('class="strt_add1"');
-        var result2 = htmldata.includes('class="strt_add2"');
-        var result3 = htmldata.includes('class="strt_add"');
-            if(result1 == true && result2 == true) {
-              post_program[0].getElementsByClassName("strt_add1")[0].value = "";
-              post_program[0].getElementsByClassName("strt_add2")[0].value = "";
+    if(postnum_class.length == 2){
+        postnum_class[0].addEventListener("keyup" , function(){
+            var postnum1 = postnum_class[0].value;
+            var postnum2 = postnum_class[1].value;
+            if(postnum2.length < 4){
+                var htmldata = post_program[0].innerHTML;
+                htmldata = htmldata.replace(" ","");
+                var result1 = htmldata.includes('class="strt_add1"');
+                var result2 = htmldata.includes('class="strt_add2"');
+                var result3 = htmldata.includes('class="strt_add"');
+                if(result1 == true && result2 == true) {
+                    post_program[0].getElementsByClassName("strt_add1")[0].value = "";
+                    post_program[0].getElementsByClassName("strt_add2")[0].value = "";
+                }
+                if(result3 == true) {
+                    post_program[0].getElementsByClassName("strt_add")[0].value = "";
+                }
             }
-            if(result3 == true) {
-              post_program[0].getElementsByClassName("strt_add")[0].value = "";
+            postnum = postnum1 + postnum2
+            if(postnum.length == 3) {
+                search1(postnum,post_program)
             }
-        }
-    }
-        postnum = postnum1 + postnum2
+            if(postnum.length == 7) {
+                search1(postnum,post_program)
+            }
+            if(postnum.length == 8) {
+                postnum = postnum.replace("-","");
+                search1(postnum,post_program)
+            }
+        });
 
-        if(postnum.length == 3) {
-            search1(postnum,post_program)
-        }
-        if(postnum.length == 7) {
-            search1(postnum,post_program)
-        }
-        if(postnum.length == 8) {
-            postnum = postnum.replace("-","");
-            search1(postnum,post_program)
-        }
+        postnum_class[1].addEventListener("keyup" , function(){
+            var postnum1 = postnum_class[0].value;
+            var postnum2 = postnum_class[1].value;
+            if(postnum2.length < 4){
+                var htmldata = post_program[0].innerHTML;
+                htmldata = htmldata.replace(" ","");
+                var result1 = htmldata.includes('class="strt_add1"');
+                var result2 = htmldata.includes('class="strt_add2"');
+                var result3 = htmldata.includes('class="strt_add"');
+                if(result1 == true && result2 == true) {
+                    post_program[0].getElementsByClassName("strt_add1")[0].value = "";
+                    post_program[0].getElementsByClassName("strt_add2")[0].value = "";
+                }
+                if(result3 == true) {
+                    post_program[0].getElementsByClassName("strt_add")[0].value = "";
+                }
+            }
+            postnum = postnum1 + postnum2
+            if(postnum.length == 3) {
+                search1(postnum,post_program)
+            }
+            if(postnum.length == 7) {
+                search1(postnum,post_program)
+            }
+            if(postnum.length == 8) {
+                postnum = postnum.replace("-","");
+                search1(postnum,post_program)
+            }
+        });
+    }
 }
 
 
