@@ -1,4 +1,4 @@
-window.onload=function(){
+window.addEventListener('load',function(){
   var test = document.getElementsByClassName("a");
   var test2 = test[0].getElementsByClassName("b");
     
@@ -17,4 +17,4 @@ window.onload=function(){
     });
     
   }
-}
+});

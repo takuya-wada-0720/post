@@ -3,7 +3,7 @@ var tmpdata = [];
 var data = [];
 var URL1 = 'https://takuya-wada-0720.github.io/post/program/'
 
-window.onload=function(){
+window.addEventListener('load',function(){
     console.log("aaaa")
     var post_program = document.getElementsByClassName("post_program");
     var postnum_class = post_program[0].getElementsByClassName("post_num");
@@ -86,7 +86,7 @@ window.onload=function(){
             }
         });
     }
-}
+});
 
 
 function search1(num1,post_program) {
