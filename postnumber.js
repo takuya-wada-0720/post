@@ -52,7 +52,6 @@ function postpro(){
             postnum = postnum.replace("-","");
             search1(postnum,post_program)
         }
-    }
 }
 
 
