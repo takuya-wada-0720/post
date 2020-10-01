@@ -4,11 +4,11 @@ var data = [];
 var URL1 = 'https://takuya-wada-0720.github.io/post/program/'
 
 window.addEventListener('load',function(){
-    console.log("aaaa")
     var post_program = document.getElementsByClassName("post_program");
     var postnum_class = post_program[0].getElementsByClassName("post_num");
     if(postnum_class.length == 1){
         postnum_class[0].addEventListener("keyup" , function(){
+            postnum = postnum_class[0].value;
             if(postnum_class.length == 1) {
                 postnum = postnum_class[0].value;
                 if(postnum.length == 3) {
