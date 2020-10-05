@@ -17,7 +17,7 @@ window.addEventListener('load',function(){
         postnum_class[0].addEventListener("keyup" , function(){
             /* フォームに入力された情報を取得 */
             postnum = postnum_class[0].value;
-            /* 文字が7文字以下の場合住所欄を空白にする */
+            /* 文字が6文字以下の場合住所欄を空白にする */
             if(postnum2.length < 7){
                 /* <form>もしくは<div>内のHTMLコードを文字列として受け取る */
                 var htmldata = post_program[0].innerHTML;
@@ -54,23 +54,29 @@ window.addEventListener('load',function(){
 
     /* 郵便番号を入力するフォームが2つの場合の処理 */
     if(postnum_class.length == 2){
+        /* 1つ目のフォームにおけるkeyupで発火 */
         postnum_class[0].addEventListener("keyup" , function(){
+            /* ２つの入力フォームの入力内容をそれぞれ受け取る */
             var postnum1 = postnum_class[0].value;
             var postnum2 = postnum_class[1].value;
+            /* ２つ目の入力フォームの文字列が3文字以下なら入力フォームを空欄にする */
             if(postnum2.length < 4){
                 var htmldata = post_program[0].innerHTML;
                 htmldata = htmldata.replace(" ","");
                 var result1 = htmldata.includes('class="strt_add1"');
                 var result2 = htmldata.includes('class="strt_add2"');
                 var result3 = htmldata.includes('class="strt_add"');
+
                 if(result1 == true && result2 == true) {
                     post_program[0].getElementsByClassName("strt_add1")[0].value = "";
                     post_program[0].getElementsByClassName("strt_add2")[0].value = "";
                 }
+
                 if(result3 == true) {
                     post_program[0].getElementsByClassName("strt_add")[0].value = "";
                 }
             }
+            /* ２つの入力内容を合わせて一つの文字列にする。 */
             postnum = postnum1 + postnum2
             if(postnum.length == 3) {
                 search1(postnum,post_program)
@@ -84,23 +90,28 @@ window.addEventListener('load',function(){
             }
         });
 
+        /* 2つ目のフォームにおけるkeyupで発火 */
         postnum_class[1].addEventListener("keyup" , function(){
             var postnum1 = postnum_class[0].value;
             var postnum2 = postnum_class[1].value;
+
             if(postnum2.length < 4){
                 var htmldata = post_program[0].innerHTML;
                 htmldata = htmldata.replace(" ","");
                 var result1 = htmldata.includes('class="strt_add1"');
                 var result2 = htmldata.includes('class="strt_add2"');
                 var result3 = htmldata.includes('class="strt_add"');
+
                 if(result1 == true && result2 == true) {
                     post_program[0].getElementsByClassName("strt_add1")[0].value = "";
                     post_program[0].getElementsByClassName("strt_add2")[0].value = "";
                 }
+
                 if(result3 == true) {
                     post_program[0].getElementsByClassName("strt_add")[0].value = "";
                 }
             }
+
             postnum = postnum1 + postnum2
             if(postnum.length == 3) {
                 search1(postnum,post_program)
@@ -116,13 +127,15 @@ window.addEventListener('load',function(){
     }
 });
 
-
+/* 検索用関数を定義する */
+/* 文字列の1文字目が0～9でそれぞれのjsファイルを読み込む */
 function search1(num1,post_program) {
   if(num1.slice(0,1) == '0'){
       var script = document.createElement("script");
       script.src = URL1+'001-099.js';
       var head = document.getElementsByTagName("head");
       head[0].appendChild(script);
+      /* jsファイルを読み込んだら行う処理 */
       script.onload = function(){
           search2_0(num1,post_program)
     }
