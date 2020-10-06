@@ -1,3 +1,5 @@
+var tmpdata = [];
+var data = [];
 var URL2 = 'https://takuya-wada-0720.github.io/post/'
 var st;
 
