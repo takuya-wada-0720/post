@@ -1,6 +1,4 @@
 var postnum;
-var tmpdata = [];
-var data = [];
 var URL1 = 'https://takuya-wada-0720.github.io/post/program/'
 
 /* ウィンドウが読み込まれたら実行する */
