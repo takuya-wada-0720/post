@@ -16,7 +16,7 @@ window.addEventListener('load',function(){
             /* フォームに入力された情報を取得 */
             postnum = postnum_class[0].value;
             /* 文字が6文字以下の場合住所欄を空白にする */
-            if(postnum2.length < 7){
+            if(postnum.length < 7){
                 /* <form>もしくは<div>内のHTMLコードを文字列として受け取る */
                 var htmldata = post_program[0].innerHTML;
                 /* 半角スペースを消す */
